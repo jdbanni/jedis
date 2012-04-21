@@ -116,6 +116,11 @@ public class BinaryTransaction extends Queable {
         return getResponse(BuilderFactory.BYTE_ARRAY);
     }
 
+    public Response<byte[]> getLDB(byte[] key) {
+        client.ldbGet(key);
+        return getResponse(BuilderFactory.BYTE_ARRAY);
+    }
+
     public Response<String> getSet(byte[] key, byte[] value) {
         client.getSet(key, value);
         return getResponse(BuilderFactory.STRING);
@@ -324,6 +329,11 @@ public class BinaryTransaction extends Queable {
 
     public Response<byte[]> set(byte[] key, byte[] value) {
         client.set(key, value);
+        return getResponse(BuilderFactory.BYTE_ARRAY);
+    }
+
+    public Response<byte[]> ldbSet(byte[] key, byte[] value) {
+        client.ldbSet(key, value);
         return getResponse(BuilderFactory.BYTE_ARRAY);
     }
 

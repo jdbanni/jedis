@@ -149,6 +149,25 @@ public class Pipeline extends Queable {
         return getResponse(BuilderFactory.LONG);
     }
 
+    /**
+     * jdbanni
+     * @param key
+     * @return
+     */
+    public Response<String> ldbGet(String key) {
+        client.ldbGet(key);
+        return getResponse(BuilderFactory.STRING);
+    }
+    /**
+     * jdbanni
+     * @param key
+     * @return
+     */
+    public Response<byte[]> ldbGet(byte[] key) {
+        client.ldbGet(key);
+        return getResponse(BuilderFactory.BYTE_ARRAY);
+    }
+
     public Response<String> get(String key) {
         client.get(key);
         return getResponse(BuilderFactory.STRING);
@@ -589,6 +608,28 @@ public class Pipeline extends Queable {
 
     public Response<String> set(byte[] key, byte[] value) {
         client.set(key, value);
+        return getResponse(BuilderFactory.STRING);
+    }
+
+    /**
+     * jdbanni
+     * @param key
+     * @param value
+     * @return
+     */
+    public Response<String> ldbSet(String key, String value) {
+        client.ldbSet(key, value);
+        return getResponse(BuilderFactory.STRING);
+    }
+
+    /**
+     * jdbanni
+     * @param key
+     * @param value
+     * @return
+     */
+    public Response<String> ldbSet(byte[] key, byte[] value) {
+        client.ldbSet(key, value);
         return getResponse(BuilderFactory.STRING);
     }
 

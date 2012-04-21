@@ -6,6 +6,10 @@ import redis.clients.jedis.BinaryClient.LIST_POSITION;
 
 public interface Commands {
 
+    /** jdbanni: added */
+    public void ldbSet(final String key, final String value);
+    public void ldbGet(final String key);
+
     public void set(final String key, final String value);
 
     public void get(final String key);

@@ -11,6 +11,10 @@ import redis.clients.jedis.BinaryClient.LIST_POSITION;
  * Common interface for sharded and non-sharded BinaryJedis
  */
 public interface BinaryJedisCommands {
+	/** jdbanni: added */
+    String ldbSet(byte[] key, byte[] value);
+    byte[] ldbGet(byte[] key);
+
     String set(byte[] key, byte[] value);
 
     byte[] get(byte[] key);

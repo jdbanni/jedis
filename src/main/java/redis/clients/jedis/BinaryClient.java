@@ -76,6 +76,22 @@ public class BinaryClient extends Connection {
         sendCommand(Command.GET, key);
     }
 
+    /**
+     * jdbanni: added
+     * @param key
+     * @param value
+     */
+    public void ldbSet(final byte[] key, final byte[] value) {
+        sendCommand(Command.LDBSET, key, value);
+    }
+    /**
+     * jdbanni: added
+     * @param key
+     */
+    public void ldbGet(final byte[] key) {
+        sendCommand(Command.LDBGET, key);
+    }
+
     public void quit() {
         db = 0;
         sendCommand(QUIT);

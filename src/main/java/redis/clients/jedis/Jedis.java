@@ -50,6 +50,18 @@ public class Jedis extends BinaryJedis implements JedisCommands {
     }
 
     /**
+     * jdbanni: level db
+     * @param key
+     * @param value
+     * @return
+     */
+    public String ldbSet(final String key, String value) {
+        checkIsInMulti();
+        client.ldbSet(key, value);
+        return client.getStatusCodeReply();
+    }
+
+    /**
      * Get the value of the specified key. If the key does not exist the special
      * value 'nil' is returned. If the value stored at key is not a string an
      * error is returned because GET can only handle string values.
@@ -62,6 +74,17 @@ public class Jedis extends BinaryJedis implements JedisCommands {
     public String get(final String key) {
         checkIsInMulti();
         client.sendCommand(Protocol.Command.GET, key);
+        return client.getBulkReply();
+    }
+
+    /**
+     * jdbanni: Level DB
+     * @param key
+     * @return
+     */
+    public String ldbGet(final String key) {
+        checkIsInMulti();
+        client.sendCommand(Protocol.Command.LDBGET, key);
         return client.getBulkReply();
     }
 

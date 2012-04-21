@@ -69,6 +69,16 @@ public class Transaction extends BinaryTransaction {
         return getResponse(BuilderFactory.STRING);
     }
 
+	/**
+	 * jdbanni
+	 * @param key
+	 * @return
+	 */
+    public Response<String> ldbGet(String key) {
+        client.ldbGet(key);
+        return getResponse(BuilderFactory.STRING);
+    }
+
     public Response<Boolean> getbit(String key, long offset) {
         client.getbit(key, offset);
         return getResponse(BuilderFactory.BOOLEAN);
@@ -288,6 +298,17 @@ public class Transaction extends BinaryTransaction {
 
     public Response<String> set(String key, String value) {
         client.set(key, value);
+        return getResponse(BuilderFactory.STRING);
+    }
+
+    /**
+     * jdbanni
+     * @param key
+     * @param value
+     * @return
+     */
+    public Response<String> ldbSet(String key, String value) {
+        client.ldbSet(key, value);
         return getResponse(BuilderFactory.STRING);
     }
 

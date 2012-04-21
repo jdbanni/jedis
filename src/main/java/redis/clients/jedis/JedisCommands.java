@@ -12,6 +12,10 @@ public interface JedisCommands {
 
     String get(String key);
 
+    /** jdbanni */
+    String ldbSet(String key, String value);
+    String ldbGet(String key);
+
     Boolean exists(String key);
 
     String type(String key);
