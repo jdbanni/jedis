@@ -14,6 +14,7 @@ public interface JedisCommands {
 
     /** jdbanni */
     String ldbSet(String key, String value);
+    String ldbAppend(String key, String value);
     String ldbGet(String key);
 
     Boolean exists(String key);

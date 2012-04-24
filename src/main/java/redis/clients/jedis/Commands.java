@@ -9,6 +9,7 @@ public interface Commands {
     /** jdbanni: added */
     public void ldbSet(final String key, final String value);
     public void ldbGet(final String key);
+    public void ldbAppend(final String key, final String value);
 
     public void set(final String key, final String value);
 

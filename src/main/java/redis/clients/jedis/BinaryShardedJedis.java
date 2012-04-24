@@ -48,6 +48,12 @@ public class BinaryShardedJedis extends Sharded<Jedis, JedisShardInfo>
 	}
 
 	@Override
+	public String ldbAppend(byte[] key, byte[] value) {
+        Jedis j = getShard(key);
+        return j.ldbAppend(key, value);
+	}
+
+	@Override
 	public byte[] ldbGet(byte[] key) {
         Jedis j = getShard(key);
         return j.ldbGet(key);

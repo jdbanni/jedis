@@ -21,6 +21,10 @@ public class Client extends BinaryClient implements Commands {
 	public void ldbSet(String key, String value) {
         ldbSet(SafeEncoder.encode(key), SafeEncoder.encode(value));
 	}
+	@Override
+	public void ldbAppend(String key, String value) {
+        ldbAppend(SafeEncoder.encode(key), SafeEncoder.encode(value));
+	}
 
 	@Override
 	public void ldbGet(String key) {

@@ -14,6 +14,7 @@ public interface BinaryJedisCommands {
 	/** jdbanni: added */
     String ldbSet(byte[] key, byte[] value);
     byte[] ldbGet(byte[] key);
+    String ldbAppend(byte[] key, byte[] value);
 
     String set(byte[] key, byte[] value);
 

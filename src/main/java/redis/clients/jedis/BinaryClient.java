@@ -91,6 +91,14 @@ public class BinaryClient extends Connection {
     public void ldbGet(final byte[] key) {
         sendCommand(Command.LDBGET, key);
     }
+    /**
+     * jdbanni: added
+     * @param key
+     * @param value
+     */
+    public void ldbAppend(final byte[] key, final byte[] value) {
+        sendCommand(Command.LDBAPPEND, key, value);
+    }
 
     public void quit() {
         db = 0;

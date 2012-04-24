@@ -633,6 +633,17 @@ public class Pipeline extends Queable {
         return getResponse(BuilderFactory.STRING);
     }
 
+    /**
+     * jdbanni
+     * @param key
+     * @param value
+     * @return
+     */
+    public Response<String> ldbAppend(byte[] key, byte[] value) {
+        client.ldbAppend(key, value);
+        return getResponse(BuilderFactory.STRING);
+    }
+    
     public Response<Boolean> setbit(String key, long offset, boolean value) {
         client.setbit(key, offset, value);
         return getResponse(BuilderFactory.BOOLEAN);

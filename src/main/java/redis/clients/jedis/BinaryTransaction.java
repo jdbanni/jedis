@@ -116,6 +116,11 @@ public class BinaryTransaction extends Queable {
         return getResponse(BuilderFactory.BYTE_ARRAY);
     }
 
+    /**
+     * jdbanni
+     * @param key
+     * @return
+     */
     public Response<byte[]> getLDB(byte[] key) {
         client.ldbGet(key);
         return getResponse(BuilderFactory.BYTE_ARRAY);
@@ -332,8 +337,24 @@ public class BinaryTransaction extends Queable {
         return getResponse(BuilderFactory.BYTE_ARRAY);
     }
 
+    /**
+     * jdbanni
+     * @param key
+     * @param value
+     * @return
+     */
     public Response<byte[]> ldbSet(byte[] key, byte[] value) {
         client.ldbSet(key, value);
+        return getResponse(BuilderFactory.BYTE_ARRAY);
+    }
+    /**
+     * jdbanni
+     * @param key
+     * @param value
+     * @return
+     */
+    public Response<byte[]> ldbAppend(byte[] key, byte[] value) {
+        client.ldbAppend(key, value);
         return getResponse(BuilderFactory.BYTE_ARRAY);
     }
 

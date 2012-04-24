@@ -40,6 +40,11 @@ public class ShardedJedis extends BinaryShardedJedis implements JedisCommands {
 	}
 
 	@Override
+	public String ldbAppend(String key, String value) {
+        Jedis j = getShard(key);
+        return j.ldbSet(key, value);
+	}
+	@Override
 	public String ldbGet(String key) {
         Jedis j = getShard(key);
         return j.ldbGet(key);

@@ -60,6 +60,17 @@ public class Jedis extends BinaryJedis implements JedisCommands {
         client.ldbSet(key, value);
         return client.getStatusCodeReply();
     }
+    /**
+     * jdbanni: level db
+     * @param key
+     * @param value
+     * @return
+     */
+    public String ldbAppend(final String key, String value) {
+        checkIsInMulti();
+        client.ldbAppend(key, value);
+        return client.getStatusCodeReply();
+    }
 
     /**
      * Get the value of the specified key. If the key does not exist the special

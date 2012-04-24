@@ -55,6 +55,19 @@ public class ShardedJedisPipeline extends Queable {
     /**
      * jdbanni
      * @param key
+     * @param value
+     * @return
+     */
+    public Response<String> ldbAppend(String key, String value) {
+        Client c = getClient(key);
+        c.ldbSet(key, value);
+        results.add(new FutureResult(c));
+        return getResponse(BuilderFactory.STRING);
+    }
+    
+    /**
+     * jdbanni
+     * @param key
      * @return
      */
     public Response<String> ldbGet(String key) {
