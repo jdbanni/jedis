@@ -644,6 +644,31 @@ public class Pipeline extends Queable {
         return getResponse(BuilderFactory.STRING);
     }
     
+    /**
+     * jdbanni
+     * @param key
+     * @param count
+     * @param iterMode
+     * @return
+     */
+    public Response<Set<String>> ldbIterForwardsKeys(byte[] key, long count) {
+        client.ldbIterForwardsKeys(key, count);
+        return getResponse(BuilderFactory.STRING_SET);
+    }
+
+    /**
+     * jdbanni
+     * @param key
+     * @param count
+     * @param iterMode
+     * @return
+     */
+    public Response<Map<String, String>> ldbIterForwardsKeysAndValues(byte[] key, long count) {
+        client.ldbIterForwardsKeysAndValues(key, count);
+        return getResponse(BuilderFactory.STRING_MAP);
+    }
+
+    
     public Response<Boolean> setbit(String key, long offset, boolean value) {
         client.setbit(key, offset, value);
         return getResponse(BuilderFactory.BOOLEAN);

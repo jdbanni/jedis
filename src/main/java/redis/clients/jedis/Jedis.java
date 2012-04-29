@@ -73,6 +73,45 @@ public class Jedis extends BinaryJedis implements JedisCommands {
     }
 
     /**
+     * jdbanni: Level DB
+     * @param key
+     * @return
+     */
+    public String ldbGet(final String key) {
+        checkIsInMulti();
+        client.sendCommand(Protocol.Command.LDBGET, key);
+        return client.getBulkReply();
+    }
+
+    /**
+     * Level DB
+     * @param key
+     * @param count
+     * @param iterMode
+     * @return
+     */
+    public Set<String> ldbIterForwardsKeys(final String key, long count) {
+        checkIsInMulti();
+        client.ldbIterForwardsKeys(key, count);
+        return BuilderFactory.STRING_SET
+                .build(client.getBinaryMultiBulkReply());
+    }
+
+    /**
+     * Level DB
+     * @param key
+     * @param count
+     * @param iterMode
+     * @return
+     */
+    public Map<String, String> ldbIterForwardsKeysAndValues(final String key, long count) {
+        checkIsInMulti();
+        client.ldbIterForwardsKeysAndValues(key, count);
+        return BuilderFactory.STRING_MAP
+                .build(client.getBinaryMultiBulkReply());
+    }
+
+    /**
      * Get the value of the specified key. If the key does not exist the special
      * value 'nil' is returned. If the value stored at key is not a string an
      * error is returned because GET can only handle string values.
@@ -85,17 +124,6 @@ public class Jedis extends BinaryJedis implements JedisCommands {
     public String get(final String key) {
         checkIsInMulti();
         client.sendCommand(Protocol.Command.GET, key);
-        return client.getBulkReply();
-    }
-
-    /**
-     * jdbanni: Level DB
-     * @param key
-     * @return
-     */
-    public String ldbGet(final String key) {
-        checkIsInMulti();
-        client.sendCommand(Protocol.Command.LDBGET, key);
         return client.getBulkReply();
     }
 

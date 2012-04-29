@@ -100,6 +100,36 @@ public class BinaryClient extends Connection {
         sendCommand(Command.LDBAPPEND, key, value);
     }
 
+    /**
+     * jdbanni
+     * 
+     * @param key
+     * @param count
+     * @param ldbIterMode
+     */
+    public void ldbIterForwardsKeys(final byte[] key, long count) {
+        final byte[][] params = new byte[3][];
+        params[0] = key;
+        params[1] = toByteArray(count);
+        params[2] = "keys".getBytes();
+        sendCommand(LDBITERFORWARDS, params);
+    }
+
+    /**
+     * jdbanni
+     * 
+     * @param key
+     * @param count
+     * @param ldbIterMode
+     */
+    public void ldbIterForwardsKeysAndValues(final byte[] key, long count) {
+        final byte[][] params = new byte[3][];
+        params[0] = key;
+        params[1] = toByteArray(count);
+        params[2] = "keysandvalues".getBytes();
+        sendCommand(LDBITERFORWARDS, params);
+    }
+
     public void quit() {
         db = 0;
         sendCommand(QUIT);

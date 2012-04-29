@@ -15,6 +15,8 @@ public interface BinaryJedisCommands {
     String ldbSet(byte[] key, byte[] value);
     byte[] ldbGet(byte[] key);
     String ldbAppend(byte[] key, byte[] value);
+	Map<byte[], byte[]> ldbIterFowardsKeys(final byte[] key, long count);
+	Set<byte[]> ldbIterFowardsKeysAndValues(final byte[] key, long count);
 
     String set(byte[] key, byte[] value);
 

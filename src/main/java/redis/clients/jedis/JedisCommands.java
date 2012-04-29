@@ -16,6 +16,8 @@ public interface JedisCommands {
     String ldbSet(String key, String value);
     String ldbAppend(String key, String value);
     String ldbGet(String key);
+    Map<String, String> ldbIterForwardsKeysAndValues(String key, long count);
+    Set<String> ldbIterForwardsKeys(String key, long count);
 
     Boolean exists(String key);
 

@@ -31,6 +31,16 @@ public class Client extends BinaryClient implements Commands {
         ldbGet(SafeEncoder.encode(key));
 	}
 
+	@Override
+	public void ldbIterForwardsKeys(String key, long count) {
+        ldbIterForwardsKeys(SafeEncoder.encode(key), count);		
+	}
+
+	@Override
+	public void ldbIterForwardsKeysAndValues(String key, long count) {
+        ldbIterForwardsKeysAndValues(SafeEncoder.encode(key), count);		
+	}
+	
     public void set(final String key, final String value) {
         set(SafeEncoder.encode(key), SafeEncoder.encode(value));
     }
