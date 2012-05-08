@@ -81,18 +81,18 @@ public class ShardedJedisPipeline extends Queable {
 	}
 
 	/**
-	 * jdbanni
+	 * jdbanni - not supported in pipeline mode
 	 * 
 	 * @param key
 	 * @return
 	 */
-	public Response<Map<String, String>> ldbIterForwardsKeysAndValues(String key,
-			long count) {
-		Client c = getClient(key);
-		c.ldbIterForwardsKeysAndValues(key, count);
-		results.add(new FutureResult(c));
-		return getResponse(BuilderFactory.STRING_MAP);
-	}
+//	public Response<Map<String, String>> ldbIterForwardsKeysAndValues(String key,
+//			long count) {
+//		Client c = getClient(key);
+//		c.ldbIterForwardsKeysAndValues(key, count);
+//		results.add(new FutureResult(c));
+//		return getResponse(BuilderFactory.STRING_MAP);
+//	}
 
 	/**
 	 * jdbanni
